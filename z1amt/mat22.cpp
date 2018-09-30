@@ -23,3 +23,10 @@ std::ostream &operator<<(std::ostream &os, const mat22 &mat221) {
     os << "xx: " << mat221.xx << " xy: " << mat221.xy << std::endl << "yx: " << mat221.yx << " yy: " << mat221.yy;
     return os;
 }
+
+mat22 mat22::operator-(mat22 const &rhs) const {
+    return mat22{{xx-rhs.xx},
+                 {xy-rhs.xy},
+                 {yx-rhs.yx},
+                 {yy-rhs.yy}};
+}

@@ -16,6 +16,7 @@ struct mat22 {
           const std::complex<double> &yy);
 
     mat22 operator*(mat22 const & rhs) const;
+    mat22 operator-(mat22 const & rhs) const;
     std::complex<double> det() const ;
 
     friend std::ostream &operator<<(std::ostream &os, const mat22 &mat221);

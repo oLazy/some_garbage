@@ -78,3 +78,32 @@ TEST(mat22_can_manipulate, mat22_can_manipulate_matrix_product_Test){
     ASSERT_DOUBLE_EQ(-13.02300, std::imag((A*B).yx));
     ASSERT_DOUBLE_EQ(-61.76580, std::imag((A*B).yy));
 }
+
+TEST(mat22_can_manipulate, mat22_can_manipulate_can_subtract_Test){
+    dcplx unit{1,0};
+    dcplx imUnit{0,1};
+    dcplx zero{0,0};
+
+    mat22 A{zero, zero, zero, zero};
+    mat22 B{zero, zero, zero, zero};
+    A.xx = double(-3)*unit - 4.0*imUnit;
+    A.xy = 4.44 * unit - 3.44 * imUnit;
+    A.yx = 12.23 * unit - 0.25 * imUnit;
+    A.yy = 11.1 * imUnit;
+
+    B.xx = double(2)*unit + imUnit;
+    B.xy = 1.23 * unit - 3.21 * imUnit;
+    B.yx = -2.23 * unit - 3.25 * imUnit;
+    B.yy = double(-2)*unit + 11.1 * imUnit;
+
+    mat22 C = A-B;
+//    ASSERT_NEAR(-23.0812, std::real((A*B).xx), double(1E-12));
+    ASSERT_DOUBLE_EQ(std::real(A.xx)- std::real(B.xx), std::real((C).xx));
+    ASSERT_DOUBLE_EQ(std::real(A.xy)- std::real(B.xy), std::real((C).xy));
+    ASSERT_DOUBLE_EQ(std::real(A.yx)- std::real(B.yx), std::real((C).yx));
+    ASSERT_DOUBLE_EQ(std::real(A.yy)- std::real(B.yy), std::real((C).yy));
+    ASSERT_DOUBLE_EQ(std::imag(A.xx)- std::imag(B.xx), std::imag((C).xx));
+    ASSERT_DOUBLE_EQ(std::imag(A.xy)- std::imag(B.xy), std::imag((C).xy));
+    ASSERT_DOUBLE_EQ(std::imag(A.yx)- std::imag(B.yx), std::imag((C).yx));
+    ASSERT_DOUBLE_EQ(std::imag(A.yy)- std::imag(B.yy), std::imag((C).yy));
+}
