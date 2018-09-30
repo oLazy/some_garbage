@@ -107,3 +107,20 @@ TEST(mat22_can_manipulate, mat22_can_manipulate_can_subtract_Test){
     ASSERT_DOUBLE_EQ(std::imag(A.yx)- std::imag(B.yx), std::imag((C).yx));
     ASSERT_DOUBLE_EQ(std::imag(A.yy)- std::imag(B.yy), std::imag((C).yy));
 }
+
+TEST(mat22_can_manipulate, mat22_can_manipulate_can_transpose_Test){
+    dcplx unit{1,0};
+    dcplx imUnit{0,1};
+    dcplx zero{0,0};
+
+    mat22 A{zero, zero, zero, zero};
+    A.xx = double(-3)*unit - 4.0*imUnit;
+    A.xy = 4.44 * unit - 3.44 * imUnit;
+    A.yx = 12.23 * unit - 0.25 * imUnit;
+    A.yy = 11.1 * imUnit;
+
+    ASSERT_TRUE(A.T().T()==A);
+    ASSERT_TRUE(A.T()!=A);
+    ASSERT_EQ((A.T()).xy,A.yx);
+    ASSERT_EQ((A.T()).yx,A.xy);
+}

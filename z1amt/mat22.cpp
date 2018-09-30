@@ -30,3 +30,18 @@ mat22 mat22::operator-(mat22 const &rhs) const {
                  {yx-rhs.yx},
                  {yy-rhs.yy}};
 }
+
+mat22 mat22::T() const {
+    return mat22{xx, yx, xy, yy};
+}
+
+bool mat22::operator==(const mat22 &rhs) const {
+    return xx == rhs.xx &&
+           xy == rhs.xy &&
+           yx == rhs.yx &&
+           yy == rhs.yy;
+}
+
+bool mat22::operator!=(const mat22 &rhs) const {
+    return !(rhs == *this);
+}

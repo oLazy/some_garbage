@@ -17,7 +17,12 @@ struct mat22 {
 
     mat22 operator*(mat22 const & rhs) const;
     mat22 operator-(mat22 const & rhs) const;
+    mat22 T() const;
     std::complex<double> det() const ;
+
+    bool operator==(const mat22 &rhs) const;
+    bool operator!=(const mat22 &rhs) const;
+
 
     friend std::ostream &operator<<(std::ostream &os, const mat22 &mat221);
 };
