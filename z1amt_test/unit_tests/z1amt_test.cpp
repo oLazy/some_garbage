@@ -16,8 +16,6 @@ TEST(mat22_can_manipulate, mat22_can_manipulate_determinant_Test){
     z.xx = imUnit;
     z.yy = imUnit;
 
-
-//    std::cout<<std::endl<<z;
     ASSERT_DOUBLE_EQ(-1, std::real(z.det()));
 
     z.yy = zero;
