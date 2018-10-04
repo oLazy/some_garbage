@@ -66,7 +66,6 @@ TEST(mat22_can_manipulate, mat22_can_manipulate_matrix_product_Test){
     B.yx = -2.23 * unit - 3.25 * imUnit;
     B.yy = double(-2)*unit + 11.1 * imUnit;
 
-//    ASSERT_NEAR(-23.0812, std::real((A*B).xx), double(1E-12));
     ASSERT_DOUBLE_EQ(-23.08120, std::real((A*B).xx));
     ASSERT_DOUBLE_EQ(12.77400, std::real((A*B).xy));
     ASSERT_DOUBLE_EQ(60.78500, std::real((A*B).yx));
@@ -95,7 +94,6 @@ TEST(mat22_can_manipulate, mat22_can_manipulate_can_subtract_Test){
     B.yy = double(-2)*unit + 11.1 * imUnit;
 
     mat22 C = A-B;
-//    ASSERT_NEAR(-23.0812, std::real((A*B).xx), double(1E-12));
     ASSERT_DOUBLE_EQ(std::real(A.xx)- std::real(B.xx), std::real((C).xx));
     ASSERT_DOUBLE_EQ(std::real(A.xy)- std::real(B.xy), std::real((C).xy));
     ASSERT_DOUBLE_EQ(std::real(A.yx)- std::real(B.yx), std::real((C).yx));
@@ -121,4 +119,30 @@ TEST(mat22_can_manipulate, mat22_can_manipulate_can_transpose_Test){
     ASSERT_TRUE(A.T()!=A);
     ASSERT_EQ((A.T()).xy,A.yx);
     ASSERT_EQ((A.T()).yx,A.xy);
+}
+
+TEST(mat_33_can_manipulate, mat33_can_manipulate_can_multiply_Test){
+    mat33 eye(1,0,0,0,1,0,0,0,1);
+    mat33 A(1., 2., 3.,
+            4., 5., 6.,
+            7., 8., 9.);
+    mat33 B(1.2, 2.5, 4.7,
+            5.6, 3.4, 6.7,
+            3.1, 3.2, 7.1);
+    mat33 res(21.7, 18.9, 39.4,
+              51.4, 46.2, 94.9,
+              81.1, 73.5, 150.4);
+    ASSERT_TRUE(A*B!=B*A);
+    ASSERT_TRUE(A*eye==A);
+    ASSERT_TRUE(A*eye==eye*A);
+    mat33 C=A*B;
+    ASSERT_DOUBLE_EQ(res.a11, C.a11);
+    ASSERT_DOUBLE_EQ(res.a12, C.a12);
+    ASSERT_DOUBLE_EQ(res.a13, C.a13);
+    ASSERT_DOUBLE_EQ(res.a21, C.a21);
+    ASSERT_DOUBLE_EQ(res.a22, C.a22);
+    ASSERT_DOUBLE_EQ(res.a23, C.a23);
+    ASSERT_DOUBLE_EQ(res.a31, C.a31);
+    ASSERT_DOUBLE_EQ(res.a32, C.a32);
+    ASSERT_DOUBLE_EQ(res.a33, C.a33);
 }
