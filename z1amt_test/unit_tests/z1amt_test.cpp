@@ -121,7 +121,7 @@ TEST(mat22_can_manipulate, mat22_can_manipulate_can_transpose_Test){
     ASSERT_EQ((A.T()).yx,A.xy);
 }
 
-TEST(mat_33_can_manipulate, mat33_can_manipulate_can_multiply_Test){
+TEST(mat33_can_manipulate, mat33_can_manipulate_can_multiply_Test){
     mat33 eye(1,0,0,0,1,0,0,0,1);
     mat33 A(1., 2., 3.,
             4., 5., 6.,
@@ -145,4 +145,19 @@ TEST(mat_33_can_manipulate, mat33_can_manipulate_can_multiply_Test){
     ASSERT_DOUBLE_EQ(res.a31, C.a31);
     ASSERT_DOUBLE_EQ(res.a32, C.a32);
     ASSERT_DOUBLE_EQ(res.a33, C.a33);
+}
+
+TEST(mat33_can_manipulate, mat33_can_manipulate_can_transpose_Test){
+    mat33 A(1.2, 2.5, 4.7,
+            5.6, 3.4, 6.7,
+            3.1, 3.2, 7.1);
+
+    ASSERT_TRUE(A!=A.T());
+    ASSERT_TRUE(A==A.T().T());
+    ASSERT_DOUBLE_EQ(A.a12,(A.T()).a21);
+    ASSERT_DOUBLE_EQ(A.a13,(A.T()).a31);
+    ASSERT_DOUBLE_EQ(A.a23,(A.T()).a32);
+    ASSERT_DOUBLE_EQ(A.T().a12, A.a21);
+    ASSERT_DOUBLE_EQ(A.T().a13, A.a31);
+    ASSERT_DOUBLE_EQ(A.T().a23, A.a32);
 }
