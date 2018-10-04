@@ -161,3 +161,19 @@ TEST(mat33_can_manipulate, mat33_can_manipulate_can_transpose_Test){
     ASSERT_DOUBLE_EQ(A.T().a13, A.a31);
     ASSERT_DOUBLE_EQ(A.T().a23, A.a32);
 }
+
+TEST(mat33_can_manipulate, mat22_can_manipulate_determinant_Test){
+    mat33 A(1, 0 ,0,
+            0, 1, 0,
+            0, 0, 1);
+
+    mat33 B( 1, 2, 3,
+             4, 5, 6,
+             7, 8, 9);
+
+    ASSERT_DOUBLE_EQ(1, A.det());
+    ASSERT_DOUBLE_EQ(B.T().det(), B.det());
+    B.a12 = -2.;
+    ASSERT_DOUBLE_EQ(-24, B.det());
+//    std::cout << std::endl << B << std::endl << B.det() << std::endl;
+}

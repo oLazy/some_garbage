@@ -38,3 +38,16 @@ mat33 mat33::operator*(const mat33 &rhs) const {
                  a31*rhs.a12+ a32*rhs.a22 + a33*rhs.a32,
                  a31*rhs.a13+ a32*rhs.a23 + a33*rhs.a33);
 }
+
+double mat33::det() const {
+    return (a11*(a22*a33 - a23*a32) -
+            a12*(a21*a33 - a23*a31) +
+            a13*(a21*a32 - a22*a31));
+}
+
+std::ostream &operator<<(std::ostream &os, const mat33 &mat331) {
+    os << "a11: " << mat331.a11 << " a12: " << mat331.a12 << " a13: " << mat331.a13 << " a21: " << mat331.a21
+       << " a22: " << mat331.a22 << " a23: " << mat331.a23 << " a31: " << mat331.a31 << " a32: " << mat331.a32
+       << " a33: " << mat331.a33;
+    return os;
+}
