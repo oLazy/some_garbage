@@ -24,11 +24,11 @@ bool mat33::operator!=(const mat33 &rhs) const {
 }
 
 mat33 mat33::T() const {
-    return mat33(a11, a21, a31, a12, a22, a32, a13, a23, a33);
+    return mat33{a11, a21, a31, a12, a22, a32, a13, a23, a33};
 }
 
 mat33 mat33::operator*(const mat33 &rhs) const {
-    return mat33(a11*rhs.a11+ a12*rhs.a21 + a13*rhs.a31,
+    return mat33{a11*rhs.a11+ a12*rhs.a21 + a13*rhs.a31,
                  a11*rhs.a12+ a12*rhs.a22 + a13*rhs.a32,
                  a11*rhs.a13+ a12*rhs.a23 + a13*rhs.a33,
                  a21*rhs.a11+ a22*rhs.a21 + a23*rhs.a31,
@@ -36,7 +36,7 @@ mat33 mat33::operator*(const mat33 &rhs) const {
                  a21*rhs.a13+ a22*rhs.a23 + a23*rhs.a33,
                  a31*rhs.a11+ a32*rhs.a21 + a33*rhs.a31,
                  a31*rhs.a12+ a32*rhs.a22 + a33*rhs.a32,
-                 a31*rhs.a13+ a32*rhs.a23 + a33*rhs.a33);
+                 a31*rhs.a13+ a32*rhs.a23 + a33*rhs.a33};
 }
 
 double mat33::det() const {
