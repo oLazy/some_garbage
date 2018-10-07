@@ -162,7 +162,7 @@ TEST(mat33_can_manipulate, mat33_can_manipulate_can_transpose_Test){
     ASSERT_DOUBLE_EQ(A.T().a23, A.a32);
 }
 
-TEST(mat33_can_manipulate, mat22_can_manipulate_determinant_Test){
+TEST(mat33_can_manipulate, mat33_can_manipulate_determinant_Test){
     mat33 A(1, 0 ,0,
             0, 1, 0,
             0, 0, 1);
