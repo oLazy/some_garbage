@@ -22,8 +22,7 @@ mat22 PekSolver::rotz(const mat22 &za, const double betarad) const{
         0.5*(sum1-dif1*co2-sum2*si2)};
 }
 
-boost::tuple<conductivity, conductivity, angle>
-PekSolver::cpanis(
+boost::tuple<conductivity, double, angle> PekSolver::cpanis(
         resistivity rop1,
         resistivity rop2,
         resistivity rop3,
@@ -31,20 +30,6 @@ PekSolver::cpanis(
         angle dip,
         angle slant)
         {
-            return boost::tuple <conductivity, conductivity, angle > ();
-        }
 
-//boost::tuple<
-//        boost::units::si::conductivity,
-//        boost::units::si::conductivity,
-//        boost::units::si::plane_angle> PekSolver::cpanis(boost::units::quantity<boost::units::si::resistivity> rop1,
-//                                                         boost::units::quantity<boost::units::si::resistivity> rop2,
-//                                                         boost::units::quantity<boost::units::si::resistivity> rop3,
-//                                                         boost::units::quantity<boost::units::si::plane_angle> strike,
-//                                                         boost::units::quantity<boost::units::si::plane_angle> dip,
-//                                                         boost::units::quantity<boost::units::si::plane_angle> slant) {
-//    quantity<conductivity> sgp[3] = {1./rop1, 1./rop2, 1./rop3};
-//    quantity<plane_angle> rstr = static_cast<quantity<radians> >(strike);
-//    return boost::tuple<boost::units::si::conductivity, boost::units::si::conductivity, boost::units::si::plane_angle>();
-//}
-//
+
+        }
