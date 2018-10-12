@@ -4,6 +4,7 @@
 
 #include "PekSolver.h"
 #include <math.h>
+#include <boost/units/cmath.hpp>
 
 mat22 PekSolver::rotz(const mat22 &za, const double betarad) const{
     dcplx
@@ -30,6 +31,6 @@ boost::tuple<conductivity, double, angle> PekSolver::cpanis(
         angle dip,
         angle slant)
         {
-
+        conductivity sg_xx = 1./rop1*boost::units::
 
         }
