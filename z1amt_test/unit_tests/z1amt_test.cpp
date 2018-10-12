@@ -4,6 +4,8 @@
 
 #include <gtest/gtest.h>
 #include <z1amt_lib.h>
+#include <boost/tuple/tuple_io.hpp>
+#include <boost/units/systems/si/io.hpp>
 
 TEST(mat22_can_manipulate, mat22_can_manipulate_determinant_Test){
     dcplx unit{1,0};
@@ -176,4 +178,18 @@ TEST(mat33_can_manipulate, mat33_can_manipulate_determinant_Test){
     B.a12 = -2.;
     ASSERT_DOUBLE_EQ(-24, B.det());
 //    std::cout << std::endl << B << std::endl << B.det() << std::endl;
+}
+
+TEST(pek_solver, pek_solver_cpanis_Test){
+    PekSolver solver;
+    const resistivity rho(1000.0 * Ohms_meter);
+    const angle zero(0.0 * degree);
+    const angle ninety(90.0 * degree);
+    boost::tuple<conductivity, double, angle> res;
+    res = solver.cpanis(rho, rho, rho, zero, zero, zero);
+    conductivity mean = res.get<0>();
+    double ratio = res.get<1>();
+    ASSERT_DOUBLE_EQ(1.0, ratio);
+
+
 }

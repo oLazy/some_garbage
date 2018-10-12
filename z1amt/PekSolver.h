@@ -11,6 +11,7 @@
 
 class PekSolver {
     int nlmax;
+public:
     mat22 rotz(const mat22 &za, const double betarad) const;
     boost::tuple<conductivity, double, angle> cpanis(
             resistivity rop1,
@@ -19,8 +20,6 @@ class PekSolver {
             angle strike,
             angle dip,
             angle slant);
-public:
-
 };
 
 
