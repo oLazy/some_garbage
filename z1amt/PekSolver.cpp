@@ -71,6 +71,6 @@ boost::tuple<conductivity, double, angle> PekSolver::cpanis(
 
     angle blt(0.5 * bu::acos((axx-ayy)/da12) );
 
-    if(axy<0.0*siemens)blt*=-1.;
+    if(axy<0.0*siemens_per_meter)blt*=-1.;
     return {(al+at)*0.5, at/al, blt};
 }

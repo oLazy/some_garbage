@@ -46,11 +46,11 @@ BOOST_UNITS_STATIC_CONSTANT(meter, meter_unit);
 BOOST_UNITS_STATIC_CONSTANT(meters, meter_unit);
 
 typedef boost::units::quantity<boost::units::si::resistivity> resistivity;
-BOOST_UNITS_STATIC_CONSTANT(Ohm, boost::units::si::resistivity);
-BOOST_UNITS_STATIC_CONSTANT(Ohms, boost::units::si::resistivity);
+BOOST_UNITS_STATIC_CONSTANT(Ohm_meter, boost::units::si::resistivity);
+BOOST_UNITS_STATIC_CONSTANT(Ohms_meter, boost::units::si::resistivity);
 
 typedef boost::units::quantity<boost::units::si::conductivity> conductivity;
-BOOST_UNITS_STATIC_CONSTANT(siemens, boost::units::si::conductivity);
+BOOST_UNITS_STATIC_CONSTANT(siemens_per_meter, boost::units::si::conductivity);
 
 typedef boost::units::quantity<boost::units::si::capacitance> capacitance;
 BOOST_UNITS_STATIC_CONSTANT(farad, boost::units::si::capacitance);
