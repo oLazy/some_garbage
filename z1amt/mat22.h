@@ -16,6 +16,7 @@ struct mat22 {
           const std::complex<double> &yy);
 
     mat22 operator*(mat22 const & rhs) const;
+    mat22 operator*(dcplx const & rhs) const;
     mat22 operator-(mat22 const & rhs) const;
     mat22 T() const;
     std::complex<double> det() const ;

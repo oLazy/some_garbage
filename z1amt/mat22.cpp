@@ -45,3 +45,7 @@ bool mat22::operator==(const mat22 &rhs) const {
 bool mat22::operator!=(const mat22 &rhs) const {
     return !(rhs == *this);
 }
+
+mat22 mat22::operator*(dcplx const &rhs) const {
+    return mat22{xx*rhs, xy*rhs, yx*rhs, yy*rhs};
+}

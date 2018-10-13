@@ -78,6 +78,19 @@ TEST(mat22_can_manipulate, mat22_can_manipulate_matrix_product_Test){
     ASSERT_DOUBLE_EQ(-61.76580, std::imag((A*B).yy));
 }
 
+TEST(mat22_can_manipulate, mat22_can_manipulate_multiply_by_scalar_Test){
+    dcplx unit{1,0};
+    dcplx imUnit{0,1};
+    dcplx zero{0,0};
+
+    mat22 A{unit+imUnit, unit-imUnit, -unit+imUnit, -unit-imUnit};
+    mat22 B = A*-2.9;
+    ASSERT_EQ(dcplx(-2.9,-2.9),B.xx);
+    ASSERT_EQ(dcplx(-2.9,2.9),B.xy);
+    ASSERT_EQ(dcplx(2.9,-2.9),B.yx);
+    ASSERT_EQ(dcplx(2.9,2.9),B.yy);
+}
+
 TEST(mat22_can_manipulate, mat22_can_manipulate_can_subtract_Test){
     dcplx unit{1,0};
     dcplx imUnit{0,1};
