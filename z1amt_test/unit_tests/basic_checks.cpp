@@ -26,3 +26,9 @@ TEST(can_link, trivial_test){
     ASSERT_TRUE(true);
 }
 
+TEST(matrix22, matrix22_can_declare_matrix_with_units_Test){
+    boost::units::matrix22<double> m(0.,0.,0.,0.);
+    // boost::units::quantity<boost::units::si::length, boost::units::matrix22<double> > mat(m);
+
+}
+

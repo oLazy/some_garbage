@@ -7,6 +7,7 @@
 
 #include <mat22.h>
 #include <mat33.h>
+#include <matrix22.h>
 #include <PekSolver.h>
 void cheers();
 namespace mt{
