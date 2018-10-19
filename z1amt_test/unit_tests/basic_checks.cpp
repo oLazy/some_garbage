@@ -27,10 +27,12 @@ TEST(can_link, trivial_test){
 }
 
 TEST(matrix22, matrix22_can_declare_matrix_with_units_Test){
-    const dcplx z(1.4, -1.4);
-    boost::units::matrix22<dcplx> mc(0.,z,-z,0.);
-    boost::units::matrix22<double_t > m(0.,1.,-1.,0.);
+    constexpr dcplx z(1.4, -1.4);
+    constexpr dcplx zero(0., 0.);
+    boost::units::matrix22<dcplx> mc(zero,z,-z,zero);
+    boost::units::matrix22<double> m(0.,1.,-1.,0.);
     boost::units::quantity<boost::units::si::length, boost::units::matrix22<double> > mat(m*meters);
+    boost::units::quantity<boost::units::si::length, boost::units::matrix22<dcplx> > matc(mc*meters);
 
     std::cout << std::endl << m << std::endl;
     std::cout << std::endl << mat << std::endl;

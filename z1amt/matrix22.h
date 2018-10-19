@@ -47,7 +47,8 @@ namespace boost {
 
             /*constexpr*/ operator value_type() const {return value_type{};} // ???
 
-            /*constexpr*/ this_type& value() const { return matrix22<value_type >(xx_, xy_, yx_, yy_);}
+            /*constexpr*/ value_type value() const { return value_type{}
+            /*matrix22<value_type >(xx_, xy_, yx_, yy_)*/;}
             /*constexpr*/ value_type xx() const {return xx_;}
             /*constexpr*/ value_type xy() const {return xy_;}
             /*constexpr*/ value_type yx() const {return yx_;}
