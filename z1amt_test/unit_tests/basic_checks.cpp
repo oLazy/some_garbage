@@ -8,6 +8,8 @@
 #include <z1amt_lib.h>
 #include <boost/units/systems/si/io.hpp>
 #include <boost/units/cmath.hpp>
+#include <UnitsSetup.h>
+#include <d1node.h>
 TEST(basic_check, test_eq){
     EXPECT_EQ(1, 1);
 }
@@ -32,9 +34,19 @@ TEST(matrix22, matrix22_can_declare_matrix_with_units_Test){
     boost::units::matrix22<dcplx> mc(zero,z,-z,zero);
     boost::units::matrix22<double> m(0.,1.,-1.,0.);
     boost::units::quantity<boost::units::si::length, boost::units::matrix22<double> > mat(m*meters);
-    boost::units::quantity<boost::units::si::length, boost::units::matrix22<dcplx> > matc(mc*meters);
+    //boost::units::quantity<boost::units::si::length, boost::units::matrix22<dcplx> > matc(mc*meters);
 
     std::cout << std::endl << m << std::endl;
     std::cout << std::endl << mat << std::endl;
 }
 
+
+TEST(d1node, d1node_can_print_out_Test){
+    length zcoord{1.0*meters};
+    conductivity s_mean{2.0*siemens_per_meter};
+    double ratio{1.0};
+    angle beta{90*degrees};
+
+    d1node generic_node{zcoord, s_mean, ratio, beta};
+    std::cout << std::endl << generic_node << std::endl;
+}

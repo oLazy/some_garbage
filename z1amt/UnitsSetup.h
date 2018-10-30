@@ -12,6 +12,7 @@
 #include <boost/units/systems/si/permittivity.hpp>
 #include <boost/units/systems/si/capacitance.hpp>
 #include <boost/units/systems/si/inductance.hpp>
+#include <boost/units/systems/si/length.hpp>
 #include <boost/units/quantity.hpp>
 
 //define unit quantities in the global namespace
@@ -64,5 +65,7 @@ typedef boost::units::quantity<boost::units::si::permeability> permeability;
 typedef boost::units::quantity<boost::units::si::permittivity> permittivity;
 
 typedef boost::units::quantity<boost::units::si::plane_angle> angle;
+
+typedef boost::units::quantity<boost::units::si::length> length;
 
 #endif //Z1DAMT_UNITSSETUP_H

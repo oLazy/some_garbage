@@ -6,6 +6,7 @@
 #include <z1amt_lib.h>
 #include <boost/tuple/tuple_io.hpp>
 #include <boost/units/systems/si/io.hpp>
+#include <d1node.h>
 
 TEST(mat22_can_manipulate, mat22_can_manipulate_determinant_Test){
     dcplx unit{1,0};
@@ -205,4 +206,13 @@ TEST(pek_solver, pek_solver_cpanis_Test){
     ASSERT_DOUBLE_EQ(1.0, ratio);
 
 
+}
+
+TEST(d1node, d1node_can_instanziate_Test){
+    length zcoord{1.0*meters};
+    conductivity s_mean{2.0*siemens_per_meter};
+    double ratio{1.0};
+    angle beta{0.5*M_PI*radians};
+
+    d1node generic_node{zcoord, s_mean, ratio, beta};
 }
