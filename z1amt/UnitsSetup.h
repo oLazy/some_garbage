@@ -15,6 +15,7 @@
 #include <boost/units/systems/si/impedance.hpp>
 #include <boost/units/systems/si/length.hpp>
 #include <boost/units/quantity.hpp>
+#include <boost/tuple/tuple.hpp>
 #include <complex>
 
 //define unit quantities in the global namespace
@@ -58,6 +59,9 @@ BOOST_UNITS_STATIC_CONSTANT(siemens_per_meter, boost::units::si::conductivity);
 typedef boost::units::quantity<boost::units::si::impedance,std::complex<double> > impedance;
 BOOST_UNITS_STATIC_CONSTANT(Ohm, boost::units::si::impedance);
 BOOST_UNITS_STATIC_CONSTANT(ohm, boost::units::si::impedance);
+
+typedef boost::tuple<impedance, impedance, impedance, impedance> impedance_tensor;
+enum {xx=0, xy=1, yx=2, yy=3}; // should be able to call boost::get<xx>(impedance_tensor) and retreive the correct value
 
 typedef boost::units::quantity<boost::units::si::capacitance> capacitance;
 BOOST_UNITS_STATIC_CONSTANT(farad, boost::units::si::capacitance);

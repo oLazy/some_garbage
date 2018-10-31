@@ -53,7 +53,6 @@ TEST(d1node, d1node_can_print_out_Test){
 
 TEST(pek_solver, pek_solver_units_zrot_print_Test){
     PekSolver s;
-    typedef boost::tuple<impedance, impedance, impedance, impedance> impedance_tensor;
 
     impedance one{dcplx{1.0,0.0}*Ohm};
     impedance zero{dcplx{0.0,0.0}*Ohm};
@@ -62,8 +61,8 @@ TEST(pek_solver, pek_solver_units_zrot_print_Test){
     impedance_tensor z{one, zero, zero, one}; // identity
     impedance_tensor zb = s.rotz(z, pi_rot);
 
-    std::cout << std::endl << boost::get<0>(zb) << std::endl;
-    std::cout << std::endl << boost::get<1>(zb) << std::endl;
-    std::cout << std::endl << boost::get<2>(zb) << std::endl;
-    std::cout << std::endl << boost::get<3>(zb) << std::endl;
+    std::cout << std::endl << boost::get<xx>(zb) << std::endl;
+    std::cout << std::endl << boost::get<xy>(zb) << std::endl;
+    std::cout << std::endl << boost::get<yx>(zb) << std::endl;
+    std::cout << std::endl << boost::get<yy>(zb) << std::endl;
 }
