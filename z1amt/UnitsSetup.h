@@ -12,8 +12,10 @@
 #include <boost/units/systems/si/permittivity.hpp>
 #include <boost/units/systems/si/capacitance.hpp>
 #include <boost/units/systems/si/inductance.hpp>
+#include <boost/units/systems/si/impedance.hpp>
 #include <boost/units/systems/si/length.hpp>
 #include <boost/units/quantity.hpp>
+#include <complex>
 
 //define unit quantities in the global namespace
 
@@ -52,6 +54,10 @@ BOOST_UNITS_STATIC_CONSTANT(Ohms_meter, boost::units::si::resistivity);
 
 typedef boost::units::quantity<boost::units::si::conductivity> conductivity;
 BOOST_UNITS_STATIC_CONSTANT(siemens_per_meter, boost::units::si::conductivity);
+
+typedef boost::units::quantity<boost::units::si::impedance,std::complex<double> > impedance;
+BOOST_UNITS_STATIC_CONSTANT(Ohm, boost::units::si::impedance);
+BOOST_UNITS_STATIC_CONSTANT(ohm, boost::units::si::impedance);
 
 typedef boost::units::quantity<boost::units::si::capacitance> capacitance;
 BOOST_UNITS_STATIC_CONSTANT(farad, boost::units::si::capacitance);
