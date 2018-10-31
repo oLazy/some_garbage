@@ -208,6 +208,20 @@ TEST(pek_solver, pek_solver_cpanis_Test){
 
 }
 
+TEST(pek_solver, pek_solver_units_zrot_Test){
+    PekSolver s;
+    typedef boost::tuple<impedance, impedance, impedance, impedance> impedance_tensor;
+
+    impedance one{dcplx{1.0,0.0}*Ohm};
+    impedance zero{dcplx{0.0,0.0}*Ohm};
+    angle no_rot{0.0*radians};
+
+    impedance_tensor z{one, zero, zero, one}; // identity
+    s.rotz(z, no_rot);
+
+
+}
+
 TEST(d1node, d1node_can_instanziate_Test){
     length zcoord{1.0*meters};
     conductivity s_mean{2.0*siemens_per_meter};

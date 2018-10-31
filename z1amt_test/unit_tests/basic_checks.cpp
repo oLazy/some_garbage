@@ -20,7 +20,7 @@ TEST(basic_check, test_neq){
 
 TEST(can_link, trivial_test){
     cheers();
- 
+
     std::cout << std::endl << "pi = " << mt::pi << std::endl;
     std::cout << std::endl << "mu0 = " << mt::mu0 << std::endl;
     std::cout << std::endl << "epsilon0 = " << mt::epsilon0 << std::endl;
@@ -49,4 +49,21 @@ TEST(d1node, d1node_can_print_out_Test){
 
     d1node generic_node{zcoord, s_mean, ratio, beta};
     std::cout << std::endl << generic_node << std::endl;
+}
+
+TEST(pek_solver, pek_solver_units_zrot_print_Test){
+    PekSolver s;
+    typedef boost::tuple<impedance, impedance, impedance, impedance> impedance_tensor;
+
+    impedance one{dcplx{1.0,0.0}*Ohm};
+    impedance zero{dcplx{0.0,0.0}*Ohm};
+    angle pi_rot{0.5*M_PI*radians};
+
+    impedance_tensor z{one, zero, zero, one}; // identity
+    impedance_tensor zb = s.rotz(z, pi_rot);
+
+    std::cout << std::endl << boost::get<0>(zb) << std::endl;
+    std::cout << std::endl << boost::get<1>(zb) << std::endl;
+    std::cout << std::endl << boost::get<2>(zb) << std::endl;
+    std::cout << std::endl << boost::get<3>(zb) << std::endl;
 }
