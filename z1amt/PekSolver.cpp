@@ -23,6 +23,31 @@ mat22 PekSolver::rotz(const mat22 &za, const double betarad) const{
             0.5*(sum1-dif1*co2-sum2*si2)};
 }
 
+boost::tuple<impedance, impedance, impedance, impedance> PekSolver::rotz(
+        const boost::tuple<impedance, impedance, impedance, impedance> &za,
+        const angle &beta) const{
+
+    impedance
+        sum1{boost::get<0>(za) + boost::get<3>(za)},
+        sum2{boost::get<1>(za) + boost::get<2>(za)},
+        dif1{boost::get<0>(za) - boost::get<3>(za)},
+        dif2{boost::get<1>(za) - boost::get<2>(za)};
+
+    dcplx half{0.5, 0.0};
+
+    auto co2{bu::cos(2.0*beta)};
+    auto si2{bu::sin(2.0*beta)};
+
+    return {
+            half*(sum1+dif1*co2+sum2*si2),
+            half*(dif2+sum2*co2-dif1*si2),
+            half*(-dif2+sum2*co2-dif1*si2),
+            half*(sum1-dif1*co2-sum2*si2)
+    };
+
+}
+
+
 boost::tuple<conductivity, double, angle> PekSolver::cpanis(
         resistivity rop1,
         resistivity rop2,

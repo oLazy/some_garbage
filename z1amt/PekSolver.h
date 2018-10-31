@@ -15,7 +15,7 @@ public:
     mat22 rotz(const mat22 &za, const double betarad) const;
     boost::tuple<impedance, impedance, impedance, impedance> rotz(
             const boost::tuple<impedance, impedance, impedance, impedance> &za,
-            const angle beta) const;
+            const angle &beta) const;
     boost::tuple<conductivity, double, angle> cpanis(
             resistivity rop1,
             resistivity rop2,
