@@ -7,6 +7,7 @@
 
 #include <UnitsSetup.h>
 #include <ostream>
+#include <boost/units/systems/si/io.hpp>
 
 class d1node {
 public:
@@ -17,7 +18,7 @@ private:
     double logr_; // log10(sigma_low/sigma_high) -3<r_<=0
     angle beta_;
 public:
-    d1node(length z, conductivity sigma_mean, double ratio, angle beta) :
+    d1node(length &z, conductivity &sigma_mean, double &ratio, angle &beta) :
     z_(z),
     sigma_(sigma_mean),
     logr_(log10(ratio)), // the interface asks for ratio but the internal representation deals with log10(ratio)

@@ -5,6 +5,7 @@
 #include "PekSolver.h"
 //#include <math.h>
 #include <boost/units/cmath.hpp>
+#include <d1node.h>
 namespace bu = boost::units;
 mat22 PekSolver::rotz(const mat22 &za, const double betarad) const{
     dcplx
@@ -98,4 +99,8 @@ boost::tuple<conductivity, double, angle> PekSolver::cpanis(
 
     if(axy<0.0*siemens_per_meter)blt*=-1.;
     return {(al+at)*0.5, at/al, blt};
+}
+
+void PekSolver::operator()(std::set<d1node> &m) const {
+
 }

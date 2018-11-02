@@ -8,13 +8,16 @@
 #include <boost/tuple/tuple.hpp>
 #include "UnitsSetup.h"
 #include "mat22.h"
+#include <set>
+//#include "d1node.h"
+class d1node;
 
 class PekSolver {
-    int nlmax;
+    int max_n_layers{32}; // tmp construct with 32 layers max
 public:
     mat22 rotz(const mat22 &za, const double betarad) const;
-    boost::tuple<impedance, impedance, impedance, impedance> rotz(
-            const boost::tuple<impedance, impedance, impedance, impedance> &za,
+    impedance_tensor rotz(
+            const impedance_tensor &za,
             const angle &beta) const;
     boost::tuple<conductivity, double, angle> cpanis(
             resistivity rop1,
@@ -23,6 +26,8 @@ public:
             angle strike,
             angle dip,
             angle slant);
+    void operator()(std::set<d1node> &m) const;
+
 };
 
 
