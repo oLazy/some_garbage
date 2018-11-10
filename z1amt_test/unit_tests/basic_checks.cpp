@@ -44,11 +44,15 @@ TEST(matrix22, matrix22_can_declare_matrix_with_units_Test){
 TEST(d1node, d1node_can_print_out_Test){
     length zcoord{1.0*meters};
     conductivity s_mean{2.0*siemens_per_meter};
-    double ratio{1.0};
+    double ratio{0.5};
     angle beta{90*degrees};
 
     d1node generic_node{zcoord, s_mean, ratio, beta};
     std::cout << std::endl << generic_node << std::endl;
+
+    std::cout << std::endl << generic_node.sigma_h() << std::endl;
+    std::cout << std::endl << generic_node.sigma_l() << std::endl;
+    std::cout << std::endl << generic_node.beta_s() << std::endl;
 }
 
 TEST(pek_solver, pek_solver_units_zrot_print_Test){

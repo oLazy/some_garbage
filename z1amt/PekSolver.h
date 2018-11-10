@@ -26,7 +26,7 @@ public:
             angle strike,
             angle dip,
             angle slant);
-    void operator()(std::set<d1node> &m) const;
+    void operator()(const std::set<d1node> &m, const int) const;
 
 };
 

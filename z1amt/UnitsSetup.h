@@ -14,6 +14,7 @@
 #include <boost/units/systems/si/inductance.hpp>
 #include <boost/units/systems/si/impedance.hpp>
 #include <boost/units/systems/si/length.hpp>
+#include <boost/units/systems/si/frequency.hpp>
 #include <boost/units/quantity.hpp>
 #include <boost/tuple/tuple.hpp>
 #include <complex>
@@ -70,6 +71,10 @@ typedef boost::units::quantity<boost::units::si::inductance> inductance;
 BOOST_UNITS_STATIC_CONSTANT(Henry, boost::units::si::inductance);
 BOOST_UNITS_STATIC_CONSTANT(henry, boost::units::si::inductance);
 
+typedef boost::units::quantity<boost::units::si::frequency, std::complex<double> > frequency;
+BOOST_UNITS_STATIC_CONSTANT(Hertz, boost::units::si::frequency);
+BOOST_UNITS_STATIC_CONSTANT(Hz, boost::units::si::frequency);
+
 typedef boost::units::quantity<boost::units::si::permeability> permeability;
 
 typedef boost::units::quantity<boost::units::si::permittivity> permittivity;
@@ -77,5 +82,7 @@ typedef boost::units::quantity<boost::units::si::permittivity> permittivity;
 typedef boost::units::quantity<boost::units::si::plane_angle> angle;
 
 typedef boost::units::quantity<boost::units::si::length> length;
+
+
 
 #endif //Z1DAMT_UNITSSETUP_H

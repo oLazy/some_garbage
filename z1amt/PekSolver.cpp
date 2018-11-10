@@ -101,6 +101,13 @@ boost::tuple<conductivity, double, angle> PekSolver::cpanis(
     return {(al+at)*0.5, at/al, blt};
 }
 
-void PekSolver::operator()(std::set<d1node> &m) const {
+void PekSolver::operator()(const std::set<d1node> &m, const int nnode) const {
+    double fake_period = 10.; // seconds
+    frequency freq{dcplx{1./fake_period, 0.0} * Hertz};
+    frequency omega{dcplx{2.0*M_PI, 0.0} * freq};
+    dcplx iu{0.0, 1.0};
+
+    auto k0{ (1.0-iu) * 2.0*M_PI * sqrt(dcplx{10.0, 0.0}/freq)};
+
 
 }

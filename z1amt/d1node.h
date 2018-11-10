@@ -19,13 +19,22 @@ private:
     angle beta_;
 public:
     d1node(length &z, conductivity &sigma_mean, double &ratio, angle &beta) :
-    z_(z),
-    sigma_(sigma_mean),
-    logr_(log10(ratio)), // the interface asks for ratio but the internal representation deals with log10(ratio)
-    beta_ (beta) {}
+            z_(z),
+            sigma_(sigma_mean),
+            logr_(log10(ratio)), // the interface asks for ratio but the internal representation deals with log10(ratio)
+            beta_ (beta) {}
 
     conductivity sigma_h() const {
-return sigma_;
+        return {2.0*sigma_/(1.0+pow(10.0,logr_))};
+    }
+
+    conductivity sigma_l() const {
+        double ratio{pow(10.0,logr_)};
+        return {ratio*2.0*sigma_/(1.0+ratio)};
+    }
+
+    angle beta_s() const {
+        return {beta_};
     }
 
     // relational operators will allow to put these in a std::set
